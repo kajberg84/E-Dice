@@ -1,0 +1,7 @@
+.products_wrapper {
+    display: flex;
+    max-width: 1200px;
+    margin: 50px auto;
+    justify-content: space-between;
+    gap: 20px;
+}

@@ -1,0 +1,14 @@
+import React from 'react';
+import { Card } from '../card/Card';
+import { products } from '../../ecomdata/EcomData';
+import styles from './ProductsWrapper.module.css';
+
+export const ProductsWrapper = () => {
+  return (
+    <div className={styles.products_wrapper}>
+      {products.map((product) => {
+        return <Card product={product} />;
+      })}
+    </div>
+  );
+};

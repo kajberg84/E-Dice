@@ -1,8 +1,17 @@
+import { Routing } from "./routes/Routing";
+import BasketProvider from "./context/BasketContext";
+import UserProvider from "./context/UserContext";
+//styles
+import "./styles/global.css";
 function App() {
   return (
-    <div className='App'>
-      <h1>E-Dice</h1>
-    </div>
+    <>
+      <UserProvider>
+        <BasketProvider>
+          <Routing />
+        </BasketProvider>
+      </UserProvider>
+    </>
   );
 }
 

@@ -1,3 +1,35 @@
+import React from 'react';
+import styles from './Footer.module.css';
+import { Link } from 'react-router-dom';
+import { RoutingPath } from '../../routes/RoutingPath';
+
 export const Footer = () => {
-  return <h1>Footer</h1>;
+  return (
+    <footer className={styles.footer_container}>
+      <div className={styles.footer_wrapper}>
+        <div className={styles.footer_logo}>
+          <h2><Link to={RoutingPath.Home}>E-dice</Link></h2>
+        </div>
+        <nav className={styles.footer_nav}>
+        <Link className={styles.footer_nav_item} to={RoutingPath.Home}>
+            Shop
+          </Link>
+          <Link className={styles.footer_nav_item} to={RoutingPath.Checkout}>
+            Checkout
+          </Link>
+          <Link className={styles.footer_nav_item} to={RoutingPath.Login}>
+            Login
+          </Link>
+        </nav>
+        <nav className={styles.footer_nav}>
+          <p className={styles.footer_nav_item}>
+            Terms and conditions
+          </p>
+          <p className={styles.footer_nav_item}>
+            Privacy
+          </p>
+        </nav>
+      </div>
+    </footer>
+  );
 };

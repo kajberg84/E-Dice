@@ -5,4 +5,5 @@ export const RoutingPath = {
   Login: "login",
   Account: "account",
   OrderConfirmation: "order-confirmation",
+  Register: "register"
 };

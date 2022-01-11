@@ -28,7 +28,12 @@ export const Header = () => {
           <Link className={styles.header_nav_item} to={RoutingPath.Login}>
             Login
           </Link>
-          <img className={`${styles.header_nav_item} ${styles.header_cart_icon}`} src={cartIcon} alt="Icon for the cart" />
+
+          <img
+            className={`${styles.header_nav_item} ${styles.header_cart_icon}`}
+            src={cartIcon}
+            alt="Icon for the cart"
+          />
         </nav>
       </div>
     </header>

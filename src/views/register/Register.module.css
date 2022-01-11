@@ -1,0 +1,12 @@
+.register_container {
+    min-height: 50vh;
+}
+
+.register_wrapper {
+    max-width: 1200px;
+    margin: 100px auto;
+}
+
+.register_wrapper h2 {
+    margin: 20px 0;
+}

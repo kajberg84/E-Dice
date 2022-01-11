@@ -6,9 +6,14 @@
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    height: 100px;
+    height: 120px;
     align-items: center;
     justify-content: space-between;
+  }
+
+  /* Storleken på loggan kan behöva ändras */
+  .header_logo {
+    width: 35%;
   }
   
   .header_nav {
@@ -21,4 +26,9 @@
   
   .header_nav_item + .header_nav_item {
     margin-left: 20px;
+  }
+
+  .header_cart_icon {
+    width: 30px;
+    cursor: pointer;
   }

@@ -1,4 +1,4 @@
-import {ProductsWrapper } from '../components/productswrapper/ProductsWrapper';
+import {ProductsWrapper } from '../../components/productswrapper/ProductsWrapper';
 export const Shop = () => {
   return (
     <>

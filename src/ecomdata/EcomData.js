@@ -37,5 +37,5 @@ class Product {
     '/images/product_rainbow_dice.jpg'
   );
   
-  export const products = [product1, product2, product3, product4];
+  export const products = [product1, product2, product3, product4, product1, product2, product3, product4];
   

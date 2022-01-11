@@ -1,7 +1,7 @@
 .card_wrapper {
   border-radius: 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  width: 300px;
+  flex: 1 0 21%;
 }
 
 .card_img_wrapper img {

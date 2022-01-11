@@ -9,6 +9,7 @@ import { OrderConfirmation } from '../views/orderconfirmation/OrderConfirmation'
 import { Register } from '../views/register/Register';
 import { Terms } from '../views/terms/Terms';
 import { Privacy } from '../views/privacy/Privacy';
+import { NotFound } from '../views/notfound/NotFound' 
 
 export const Routing = () => {
   return (
@@ -25,6 +26,7 @@ export const Routing = () => {
             <Route path={RoutingPath.Register} element={<Register />} />
             <Route path={RoutingPath.Terms} element={<Terms />} />
             <Route path={RoutingPath.Privacy} element={<Privacy />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>

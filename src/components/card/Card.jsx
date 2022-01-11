@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './Card.module.css';
+import React from "react";
+import styles from "./Card.module.css";
 
 export const Card = ({ product }) => {
   return (
@@ -10,6 +10,7 @@ export const Card = ({ product }) => {
       <div className={styles.card_content_wrapper}>
         <h2 className={styles.card_title}>{product.title}</h2>
         <p className={styles.card_description}>{product.description}</p>
+        <p className={styles.card_material}>Material: {product.material}</p>
         <h3 className={styles.card_price}>{product.price} $</h3>
         <button className={styles.card_button}>Add to Cart</button>
       </div>

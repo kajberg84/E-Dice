@@ -8,10 +8,12 @@ export const Footer = () => {
     <footer className={styles.footer_container}>
       <div className={styles.footer_wrapper}>
         <div className={styles.footer_logo}>
-          <h2><Link to={RoutingPath.Home}>E-dice</Link></h2>
+          <h2>
+            <Link to={RoutingPath.Home}>E-dice</Link>
+          </h2>
         </div>
         <nav className={styles.footer_nav}>
-        <Link className={styles.footer_nav_item} to={RoutingPath.Home}>
+          <Link className={styles.footer_nav_item} to={RoutingPath.Home}>
             Shop
           </Link>
           <Link className={styles.footer_nav_item} to={RoutingPath.Checkout}>
@@ -22,12 +24,12 @@ export const Footer = () => {
           </Link>
         </nav>
         <nav className={styles.footer_nav}>
-          <p className={styles.footer_nav_item}>
+          <Link className={styles.footer_nav_item} to={RoutingPath.Terms}>
             Terms and conditions
-          </p>
-          <p className={styles.footer_nav_item}>
+          </Link>
+          <Link className={styles.footer_nav_item} to={RoutingPath.Privacy}>
             Privacy
-          </p>
+          </Link>
         </nav>
       </div>
     </footer>

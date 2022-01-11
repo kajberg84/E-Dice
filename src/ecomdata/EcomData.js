@@ -43,3 +43,4 @@ const product4 = new Product(
 );
 
 export const products = [product1, product2, product3, product4];
+

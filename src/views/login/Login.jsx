@@ -5,9 +5,9 @@ import { UserContext } from "../../context/UserContext";
 import styles from "./Login.module.css";
 
 export const Login = () => {
-  const [userValue, tokenValue] = useContext(UserContext);
+  const [userValue] = useContext(UserContext);
   const [user, setUser] = userValue;
-  const [userToken, setUserToken] = tokenValue;
+  // const [userToken, setUserToken] = tokenValue;
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
 
@@ -54,4 +54,4 @@ export const Login = () => {
       </div>
     </div>
   );
-};
+};;

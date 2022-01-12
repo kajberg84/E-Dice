@@ -8,7 +8,6 @@ import styles from "./Header.module.css";
 
 // Images
 import logo from "../../assets/images/Edice_full_logo.svg";
-import cartIcon from "../../assets/images/shopping_cart_icon.svg";
 
 export const Header = () => {
   return (

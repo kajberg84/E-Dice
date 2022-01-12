@@ -8,8 +8,8 @@ export const users = [
     city: "Idastad",
     phone: "070-0000000",
     email: "Ida@Ida.com",
-    password: "Ida1",
     userlevel: "basic",
+    password: "Ida1",
     created: "2022-01-12",
   },
   {
@@ -21,12 +21,12 @@ export const users = [
     city: "Kajstad",
     phone: "070-0000001",
     email: "Kaj@Kaj.com",
-    password: "Kaj1",
     userlevel: "basic",
+    password: "Kaj1",
     created: "2022-01-12",
   },
   {
-    id: 2,
+    id: 3,
     fname: "Mattis",
     lname: "Mattisson",
     adress: "Mattisvägen 2",
@@ -34,11 +34,23 @@ export const users = [
     city: "Mattisstad",
     phone: "070-0000002",
     email: "Mattis@Mattis.com",
-    password: "Mattis1",
     userlevel: "basic",
+    password: "Mattis1",
     created: "2022-01-12",
   },
 ];
+
+const getUser = (email, password) => {
+  const user = users.filter(
+    (user) => user.email === email && user.password === password
+  );
+  if (user) {
+    const { password, created, ...userInfo } = user;
+    return userInfo;
+  } else {
+    return {};
+  }
+};
 
 // getuser(email, password)
 // kolla mot voran egna users att denna finns och returnera ett objekt.

@@ -37,3 +37,16 @@ input[type="button"] {
   color: #fff;
   font-size: 1.8rem;
 }
+
+.inputButton {
+  outline: none;
+  border: 1px solid grey;
+  width: 100%;
+  padding: 20px 20px;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  background-color: rgba(85, 85, 85, 0.918);
+  color: #fff;
+  font-size: 1.8rem;
+}

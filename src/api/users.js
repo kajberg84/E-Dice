@@ -40,17 +40,16 @@ export const users = [
   },
 ];
 
-const getUser = (email, password) => {
+export const getUser = (email, password) => {
   const user = users.filter(
     (user) => user.email === email && user.password === password
   );
-  if (user) {
-    const { password, created, ...userInfo } = user;
-    return userInfo;
+  // if(user) => Detta funkar inte då filter ändå returnerarr en tom array så det är ändå något. Så jag gjorde såhär just nu för då har vi en user.
+  if (user.length > 0) {
+    const removeProp = "password";
+    const { [removeProp]: remove, ...rest } = user;
+    return rest;
   } else {
-    return {};
+    return null;
   }
 };
-
-// getuser(email, password)
-// kolla mot voran egna users att denna finns och returnera ett objekt.

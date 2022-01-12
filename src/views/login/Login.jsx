@@ -1,27 +1,40 @@
 //Imports
 import { useState, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import { getUser } from "../../api/users";
+import { setLocalStorage } from "../../utils/localStorageHandler";
 // Styles
 import styles from "./Login.module.css";
 
 export const Login = () => {
   const { user, setUser } = useContext(UserContext);
-  console.log(user);
-  // const [userToken, setUserToken] = tokenValue;
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
-
-  //  function loginResponse(userObject) {
-
-  //  }
 
   //Handling login
   async function handleLogin(e) {
     e.preventDefault();
-    // fixa loginvalidation senare
-    // const responseFromApi = getUser(userEmail, userPassword);
 
-    console.log("submit form", userEmail, userPassword);
+    //validate input ( fixa en bättre lösning )
+    if (userEmail === "" || userPassword === "") {
+      alert("Please enter your email and password");
+      return;
+    }
+
+    try {
+      const responseUser = await getUser(userEmail, userPassword);
+      if (!responseUser) {
+        console.log("Not correct validation or no user", responseUser);
+        alert("Wrong email/ password or no user");
+        return;
+      }
+
+      console.log("user: ", responseUser);
+      setLocalStorage("edice-user", responseUser);
+      setUser(responseUser);
+    } catch (error) {
+      console.log("Login: ", error);
+    }
   }
 
   return (

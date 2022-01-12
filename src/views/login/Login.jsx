@@ -1,19 +1,26 @@
 //Imports
 import { useState, useContext } from "react";
-// import { UserContext } from "../../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 // Styles
 import styles from "./Login.module.css";
 
 export const Login = () => {
-  // const [userValue, tokenValue] = useContext(UserContext);
-  // const [user, setUser] = userValue;
-  // const [userToken, setUserToken] = tokenValue;
+  const [userValue, tokenValue] = useContext(UserContext);
+  const [user, setUser] = userValue;
+  const [userToken, setUserToken] = tokenValue;
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
 
+  //  function loginResponse(userObject) {
+
+  //  }
+
   //Handling login
-  function handleLogin(e) {
+  async function handleLogin(e) {
     e.preventDefault();
+    // fixa loginvalidation senare
+    // const responseFromApi = getUser(userEmail, userPassword);
+
     console.log("submit form", userEmail, userPassword);
   }
 

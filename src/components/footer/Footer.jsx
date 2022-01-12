@@ -1,28 +1,18 @@
-import React from 'react';
-import styles from './Footer.module.css';
-import { Link } from 'react-router-dom';
-import { RoutingPath } from '../../routes/RoutingPath';
+import React from "react";
+import styles from "./Footer.module.css";
+import { Link } from "react-router-dom";
+import { RoutingPath } from "../../routes/RoutingPath";
+import { Navbar } from "../navbar/Navbar";
+import logo from "../../assets/images/Edice_logo_side.svg";
 
 export const Footer = () => {
   return (
     <footer className={styles.footer_container}>
       <div className={styles.footer_wrapper}>
         <div className={styles.footer_logo}>
-          <h2>
-            <Link to={RoutingPath.Home}>E-dice</Link>
-          </h2>
+          <img src={logo} alt="E-Dice logo" />
         </div>
-        <nav className={styles.footer_nav}>
-          <Link className={styles.footer_nav_item} to={RoutingPath.Home}>
-            Shop
-          </Link>
-          <Link className={styles.footer_nav_item} to={RoutingPath.Checkout}>
-            Checkout
-          </Link>
-          <Link className={styles.footer_nav_item} to={RoutingPath.Login}>
-            Login
-          </Link>
-        </nav>
+        <Navbar />
         <nav className={styles.footer_nav}>
           <Link className={styles.footer_nav_item} to={RoutingPath.Terms}>
             Terms and conditions

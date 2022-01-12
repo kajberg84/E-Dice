@@ -17,9 +17,5 @@
 
 .footer_nav_item {
   font-size: 1.8rem;
-  margin-top: 5px;
-}
-
-.footer_nav_item + .footer_nav_item {
   margin-left: 20px;
 }

@@ -17,7 +17,7 @@ export const Navbar = () => {
 
   const navigate = useNavigate();
 
-  // Hantera logout när loggedIn state och Login sidan är fixat
+  // Hantera logout när loggedIn state och Login sidan är klar
   const handleLogout = () => {
     alert("logging out");
     // navigate(RoutingPath.Login);

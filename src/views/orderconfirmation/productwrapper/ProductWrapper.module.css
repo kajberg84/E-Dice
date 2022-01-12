@@ -1,0 +1,26 @@
+.product_wrapper {
+    display: flex;
+    border: 1px solid rgb(216, 216, 216);
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    margin-top: 10px;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.product_wrapper_items {
+    display: flex;
+    align-items: center;
+}
+
+.product_wrapper h4, p{
+    font-size: 1.8rem;
+}
+
+.product_wrapper_items p {
+    margin-left: 10px;
+    margin-top: 3px;
+}
+

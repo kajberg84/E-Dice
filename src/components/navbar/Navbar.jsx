@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { BasketContext } from "../../context/BasketContext";
 import { Modal } from "../../utils/modal/Modal";
+import { removeLocalStorage } from "../../utils/localStorageHandler";
 
 // Styles
 import styles from "./Navbar.module.css";
@@ -22,6 +23,7 @@ export const Navbar = () => {
 
   // Hantera logout när loggedIn state och Login sidan är klar
   const handleLogout = () => {
+    removeLocalStorage("edice-user");
     setUser(null);
     navigate(RoutingPath.Login);
   };
@@ -75,14 +77,14 @@ export const Navbar = () => {
           <img
             className={styles.cart_icon}
             src={cartIcon}
-            alt="Icon for the cart"
+            alt='Icon for the cart'
           />
         </button>
       </nav>
       {modalVisible && (
         <Modal
-          title="Shopping basket"
-          content="items"
+          title='Shopping basket'
+          content='items'
           actions={
             <div>
               <button onClick={() => setModalvisible(false)}>close</button>

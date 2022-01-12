@@ -1,5 +1,5 @@
 import { Hero } from '../../components/hero/Hero';
-import { ProductWrapper } from './productwrapper/ProductWrapper';
+import { ProductCardSmall } from '../../components/productcardsmall/ProductCardSmall';
 
 // styles
 import styles from './OrderConfirmation.module.css';
@@ -14,7 +14,7 @@ export const OrderConfirmation = () => {
           <h4 className={styles.order_confirmation_heading4}>
             Products ordered:
           </h4>
-          <ProductWrapper
+          <ProductCardSmall
             title="Product"
             description="lorem ipsum dolor sit amet"
             price="100"

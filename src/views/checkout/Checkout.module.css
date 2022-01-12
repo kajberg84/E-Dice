@@ -1,0 +1,16 @@
+.checkout_wrapper {
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.checkout_wrapper h3 {
+    margin: 20px 0;
+}
+
+.checkout_form input {
+    padding: 10px 20px;
+}
+
+/* .checkout_product_cart_display {
+
+} */

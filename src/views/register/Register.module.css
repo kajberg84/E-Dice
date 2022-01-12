@@ -4,9 +4,13 @@
 
 .register_wrapper {
     max-width: 1200px;
-    margin: 100px auto;
+    margin: 50px auto;
 }
 
-.register_wrapper h2 {
+.register_wrapper h3 {
     margin: 20px 0;
+}
+
+.register_form input {
+    padding: 10px 20px;
 }

@@ -38,6 +38,10 @@ input[type="button"] {
   font-size: 1.8rem;
 }
 
+input[type="button"]:hover {
+  background-color: rgb(49, 49, 49);
+}
+
 .inputButton {
   outline: none;
   border: 1px solid grey;

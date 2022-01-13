@@ -1,7 +1,10 @@
+import { useState } from "react";
 import style from "./Modal.module.css";
 
 export const Modal = (props) => {
-  const { title, content, actions } = props;
+  const { passedPosition, title, content, actions } = props;
+
+  const [position, setPosition] = useState("Top");
 
   const modalPositionStyle = {
     position: "fixed",
@@ -9,8 +12,29 @@ export const Modal = (props) => {
     right: "3rem",
   };
 
+  const modalPositionStyleTop = {
+    position: "fixed",
+    top: "100px",
+    right: "3rem",
+  };
+
+  const modalPositionStyleBottom = {
+    position: "fixed",
+    bottom: "180px",
+    right: "3rem",
+  };
+  const decidePosition = (string) => {
+    if (string === "Top") {
+      return modalPositionStyleTop;
+    } else if (string === "Bottom") {
+      return modalPositionStyleBottom;
+    } else {
+      return modalPositionStyle;
+    }
+  };
+
   return (
-    <div className={style.modal_wrapper} style={modalPositionStyle}>
+    <div className={style.modal_wrapper} style={decidePosition(passedPosition)}>
       <div className={style.title_wrapper}>{title}</div>
       <div className={style.content_wrapper}>{content}</div>
       <div className={style.actions_wrapper}>{actions}</div>

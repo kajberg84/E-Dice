@@ -42,15 +42,15 @@ export const Routing = () => {
             <Route path={RoutingPath.Register} element={<Register />} />
             <Route path={RoutingPath.Terms} element={<Terms />} />
             <Route path={RoutingPath.Privacy} element={<Privacy />} />
+            <Route path={RoutingPath.Checkout} element={<Checkout />} />
+            <Route
+              path={RoutingPath.OrderConfirmation}
+              element={<OrderConfirmation />}
+            />
+          </Route>
 
-            <Route element={<RequireAuth />}>
-              <Route path={RoutingPath.Checkout} element={<Checkout />} />
-              <Route path={RoutingPath.Account} element={<Account />} />
-              <Route
-                path={RoutingPath.OrderConfirmation}
-                element={<OrderConfirmation />}
-              />
-            </Route>
+          <Route element={<RequireAuth />}>
+            <Route path={RoutingPath.Account} element={<Account />} />
 
             <Route path='*' element={<NotFound />} />
           </Route>

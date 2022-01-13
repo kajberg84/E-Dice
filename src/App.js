@@ -1,5 +1,5 @@
 import { Routing } from "./routes/Routing";
-import BasketProvider from "./context/BasketContext";
+import CartProvider from "./context/CartContext";
 import UserProvider from "./context/UserContext";
 //styles
 import "./styles/global.css";
@@ -7,9 +7,9 @@ function App() {
   return (
     <>
       <UserProvider>
-        <BasketProvider>
+        <CartProvider>
           <Routing />
-        </BasketProvider>
+        </CartProvider>
       </UserProvider>
     </>
   );

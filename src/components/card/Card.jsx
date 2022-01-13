@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { ProductModal } from "../productmodal/ProductModal";
 import { useContext } from "react";
-import { BasketContext } from "../../context/BasketContext";
+import { CartContext } from "../../context/CartContext";
 // styles
 import styles from "./Card.module.css";
-import { Basket } from "../basket/Basket";
+import { Cart } from "../cart/Cart";
 
 export const Card = ({ product }) => {
-  const { basket, setBasket } = useContext(BasketContext);
+  const { cart, setCart } = useContext(CartContext);
   const [showModal, setShowModal] = useState(false);
   const handleModal = () => {
     setShowModal(true);
@@ -19,8 +19,8 @@ export const Card = ({ product }) => {
   };
 
   const addToCart = (product) => {
-    // setBasket([...basket, product]);
-    setBasket((prevState) => [...basket, product]);
+    // setCart([...cart, product]);
+    setCart((prevState) => [...cart, product]);
   };
 
   return (

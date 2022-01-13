@@ -10,7 +10,7 @@ export const Basket = () => {
       {basket.length <= 0 && <p>Your shopping basket is empty...</p>}
       {basket.map((product) => (
         <ul>
-          <li className={style.li_style} id={basket.index}>
+          <li className={style.li_style} key={basket.index}>
             <div>{product.title}</div>
             <div>{product.price} $</div>
           </li>

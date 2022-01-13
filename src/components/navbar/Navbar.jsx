@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { RoutingPath } from "../../routes/RoutingPath";
 
 import { useContext, useState } from "react";
@@ -8,7 +8,7 @@ import { CartContext } from "../../context/CartContext";
 import { Modal } from "../../utils/modal/Modal";
 import { removeLocalStorage } from "../../utils/localStorageHandler";
 import { Cart } from "../cart/Cart";
-
+import CustomLink from "../../utils/CustomLink";
 // Styles
 import styles from "./Navbar.module.css";
 
@@ -36,12 +36,12 @@ export const Navbar = (props) => {
   const unAuthNavbar = () => {
     return (
       <>
-        <Link className={styles.nav_item} to={RoutingPath.Login}>
+        <CustomLink className={styles.nav_item} to={RoutingPath.Login}>
           Login
-        </Link>
-        <Link className={styles.nav_item} to={RoutingPath.Register}>
+        </CustomLink>
+        <CustomLink className={styles.nav_item} to={RoutingPath.Register}>
           Register
-        </Link>
+        </CustomLink>
       </>
     );
   };
@@ -49,9 +49,9 @@ export const Navbar = (props) => {
   const authNavbar = () => {
     return (
       <>
-        <Link className={styles.nav_item} to={RoutingPath.Account}>
+        <CustomLink className={styles.nav_item} to={RoutingPath.Account}>
           Account
-        </Link>
+        </CustomLink>
         <button className={styles.nav_button} onClick={handleLogout}>
           Logout
         </button>
@@ -73,19 +73,19 @@ export const Navbar = (props) => {
   return (
     <>
       <nav className={styles.nav}>
-        <Link className={styles.nav_item} to={RoutingPath.Home}>
+        <CustomLink className={styles.nav_item} to={RoutingPath.Home}>
           Shop
-        </Link>
-        <Link className={styles.nav_item} to={RoutingPath.Checkout}>
+        </CustomLink>
+        <CustomLink className={styles.nav_item} to={RoutingPath.Checkout}>
           Checkout
-        </Link>
+        </CustomLink>
         {user ? authNavbar() : unAuthNavbar()}
-        <div className={styles.nav_icon_wrapper}onClick={showModal}>
+        <div className={styles.nav_icon_wrapper} onClick={showModal}>
           <button className={styles.nav_button}>
             <img
               className={styles.cart_icon}
               src={cartIcon}
-              alt="Icon for the cart"
+              alt='Icon for the cart'
             />
           </button>
           <p> ({cart.length}) </p>
@@ -94,7 +94,7 @@ export const Navbar = (props) => {
       {modalVisible && (
         <Modal
           passedPosition={navPositionClicked}
-          title="Shopping cart"
+          title='Shopping cart'
           content={<Cart />}
           actions={
             <div>

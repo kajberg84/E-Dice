@@ -23,6 +23,7 @@ import { UserContext } from "../context/UserContext";
 export const Routing = () => {
   const { user, setUser } = useContext(UserContext);
 
+  // Navigerar till login om ej user finns annars så returneras componenten
   function RequireAuth() {
     let location = useLocation();
 

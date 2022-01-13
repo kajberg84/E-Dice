@@ -12,9 +12,9 @@ export const Footer = () => {
         <div className={styles.footer_logo}>
           <img src={logo} alt="E-Dice logo" />
         </div>
-        <Navbar />
+        <Navbar navPosition="Bottom" />
         <nav className={styles.footer_nav}>
-          <Link className={styles.footer_nav_item} to={RoutingPath.Terms}>
+          <Link classN ame={styles.footer_nav_item} to={RoutingPath.Terms}>
             Terms and conditions
           </Link>
           <Link className={styles.footer_nav_item} to={RoutingPath.Privacy}>

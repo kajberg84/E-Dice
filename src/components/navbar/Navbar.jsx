@@ -14,14 +14,16 @@ import styles from "./Navbar.module.css";
 // Images
 import cartIcon from "../../assets/images/shopping_cart_icon.svg";
 
-export const Navbar = () => {
+export const Navbar = (props) => {
+  const { navPosition } = props;
+
+  const [navPositionClicked, setNavPositionClicked] = useState("");
   const { user, setUser } = useContext(UserContext);
 
   const [modalVisible, setModalvisible] = useState(false);
 
   const navigate = useNavigate();
 
-  // Hantera logout när loggedIn state och Login sidan är klar
   const handleLogout = () => {
     removeLocalStorage("edice-user");
     setUser(null);
@@ -56,6 +58,8 @@ export const Navbar = () => {
 
   const showModal = () => {
     setModalvisible(!modalVisible);
+    setNavPositionClicked(navPosition);
+    console.log(navPositionClicked);
   };
 
   const handleToCheckout = () => {
@@ -77,14 +81,15 @@ export const Navbar = () => {
           <img
             className={styles.cart_icon}
             src={cartIcon}
-            alt='Icon for the cart'
+            alt="Icon for the cart"
           />
         </button>
       </nav>
       {modalVisible && (
         <Modal
-          title='Shopping basket'
-          content='items'
+          passedPosition={navPositionClicked}
+          title="Shopping basket"
+          content="items"
           actions={
             <div>
               <button onClick={() => setModalvisible(false)}>close</button>

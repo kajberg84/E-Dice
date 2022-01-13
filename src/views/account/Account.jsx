@@ -1,6 +1,6 @@
 import { Hero } from '../../components/hero/Hero';
 import { Link } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 
 // styles
@@ -12,7 +12,8 @@ export const Account = () => {
   // Uppdatera så at denna kolla mot userContext
   return (
     <div className={styles.account_container}>
-      <Hero title={`Hello ${user.fname}`} />
+      {user && <Hero title={`Hello ${user.fname}`} />}
+
       <div className={styles.account_wrapper}>
         <div className={styles.account_content}>
           <h2>Find some amazing dices in our shop</h2>

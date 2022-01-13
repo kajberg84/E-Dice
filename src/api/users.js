@@ -44,10 +44,8 @@ export const getUser = (email, password) => {
   const user = users.filter(
     (user) => user.email === email && user.password === password
   );
-  // if(user) => Detta funkar inte då filter ändå returnerarr en tom array så det är ändå något. Så jag gjorde såhär just nu för då har vi en user.
   if (user.length > 0) {
-    const removeProp = "password";
-    const { [removeProp]: remove, ...rest } = user;
+    const { password, created, ...rest } = user[0];
     return rest;
   } else {
     return null;

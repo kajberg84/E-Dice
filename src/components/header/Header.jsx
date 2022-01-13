@@ -19,11 +19,11 @@ export const Header = () => {
       <div className={styles.header_wrapper}>
         <div className={styles.header_logo}>
           <Link to={RoutingPath.Home}>
-            <img src={logo} alt="E-Dice logo" className={styles.header_logo} />
+            <img src={logo} alt='E-Dice logo' className={styles.header_logo} />
           </Link>
         </div>
-        {user ? <p>Hello {user[0].fname}</p> : <p>Guest</p>}
-        <Navbar navPosition="Top" />
+        {user ? <p>Hello {user.fname}</p> : <p>Guest</p>}
+        <Navbar navPosition='Top' />
       </div>
     </header>
   );

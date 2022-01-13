@@ -1,10 +1,7 @@
-import { useState } from "react";
 import style from "./Modal.module.css";
 
 export const Modal = (props) => {
   const { passedPosition, title, content, actions } = props;
-
-  const [position, setPosition] = useState("Top");
 
   const modalPositionStyle = {
     position: "fixed",

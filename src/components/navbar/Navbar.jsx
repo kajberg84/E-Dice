@@ -7,6 +7,7 @@ import { UserContext } from "../../context/UserContext";
 import { BasketContext } from "../../context/BasketContext";
 import { Modal } from "../../utils/modal/Modal";
 import { removeLocalStorage } from "../../utils/localStorageHandler";
+import { Basket } from "../basket/Basket";
 
 // Styles
 import styles from "./Navbar.module.css";
@@ -21,6 +22,8 @@ export const Navbar = (props) => {
   const { user, setUser } = useContext(UserContext);
 
   const [modalVisible, setModalvisible] = useState(false);
+
+  const { basket } = useContext(BasketContext);
 
   const navigate = useNavigate();
 
@@ -84,12 +87,13 @@ export const Navbar = (props) => {
             alt="Icon for the cart"
           />
         </button>
+        <p> ({basket.length}) </p>
       </nav>
       {modalVisible && (
         <Modal
           passedPosition={navPositionClicked}
           title="Shopping basket"
-          content="items"
+          content={<Basket />}
           actions={
             <div>
               <button onClick={() => setModalvisible(false)}>close</button>

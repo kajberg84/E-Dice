@@ -1,17 +1,17 @@
 import ReactDOM from "react-dom";
 import icon from "../../assets/icons/x-circle.svg";
 import { useContext } from "react";
-import { BasketContext } from "../../context/BasketContext";
+import { CartContext } from "../../context/CartContext";
 
 // styles
 import styles from "./ProductModal.module.css";
 
 export const ProductModal = ({ product, closeModal }) => {
-  const { basket, setBasket } = useContext(BasketContext);
+  const { cart, setCart } = useContext(CartContext);
 
   const addToCart = (product) => {
-    // setBasket([...basket, product]);
-    setBasket((prevState) => [...basket, product]);
+    // setCart([...cart, product]);
+    setCart((prevState) => [...cart, product]);
   };
 
   return ReactDOM.createPortal(

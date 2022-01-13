@@ -4,10 +4,10 @@ import { RoutingPath } from "../../routes/RoutingPath";
 
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
-import { BasketContext } from "../../context/BasketContext";
+import { CartContext } from "../../context/CartContext";
 import { Modal } from "../../utils/modal/Modal";
 import { removeLocalStorage } from "../../utils/localStorageHandler";
-import { Basket } from "../basket/Basket";
+import { Cart } from "../cart/Cart";
 
 // Styles
 import styles from "./Navbar.module.css";
@@ -23,7 +23,7 @@ export const Navbar = (props) => {
 
   const [modalVisible, setModalvisible] = useState(false);
 
-  const { basket } = useContext(BasketContext);
+  const { cart } = useContext(CartContext);
 
   const navigate = useNavigate();
 
@@ -87,13 +87,13 @@ export const Navbar = (props) => {
             alt="Icon for the cart"
           />
         </button>
-        <p> ({basket.length}) </p>
+        <p> ({cart.length}) </p>
       </nav>
       {modalVisible && (
         <Modal
           passedPosition={navPositionClicked}
-          title="Shopping basket"
-          content={<Basket />}
+          title="Shopping cart"
+          content={<Cart />}
           actions={
             <div>
               <button onClick={() => setModalvisible(false)}>close</button>

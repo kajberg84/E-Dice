@@ -7,7 +7,7 @@ import { UserContext } from '../../context/UserContext';
 import styles from './Account.module.css';
 
 export const Account = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   // Uppdatera så at denna kolla mot userContext
   return (

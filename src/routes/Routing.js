@@ -21,14 +21,23 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
 export const Routing = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   // Navigerar till login om ej user finns annars så returneras componenten
   function RequireAuth() {
     let location = useLocation();
 
     if (!user) {
-      return <Navigate to='/login' state={{ from: location }} />;
+      return <Navigate to={RoutingPath.Login} state={{ from: location }} />;
+    }
+    return <Outlet />;
+  }
+
+  function HideLoginViewForAuthedUser() {
+    let location = useLocation();
+
+    if (user) {
+      return <Navigate to={RoutingPath.Account} state={{ from: location }} />;
     }
     return <Outlet />;
   }
@@ -39,7 +48,6 @@ export const Routing = () => {
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Shop />} />
-            <Route path={RoutingPath.Login} element={<Login />} />
             <Route path={RoutingPath.Register} element={<Register />} />
             <Route path={RoutingPath.Terms} element={<Terms />} />
             <Route path={RoutingPath.Privacy} element={<Privacy />} />
@@ -50,6 +58,9 @@ export const Routing = () => {
             />
             <Route element={<RequireAuth />}>
               <Route path={RoutingPath.Account} element={<Account />} />
+            </Route>
+            <Route element={<HideLoginViewForAuthedUser/>}>
+              <Route path={RoutingPath.Login} element={<Login />} />
             </Route>
           </Route>
 

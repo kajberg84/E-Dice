@@ -1,5 +1,5 @@
 /* Poppins regular and bold */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 .nav {
   display: flex;
@@ -21,6 +21,11 @@
   width: 30px;
 }
 
+.nav_icon_wrapper {
+  display: flex;
+  cursor: pointer;
+}
+
 .nav_button {
   display: flex;
   justify-content: center;
@@ -34,5 +39,5 @@
   margin-left: 20px;
   font-size: 1.8rem;
   transition: 0.5s;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }

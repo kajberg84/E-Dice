@@ -80,14 +80,16 @@ export const Navbar = (props) => {
           Checkout
         </Link>
         {user ? authNavbar() : unAuthNavbar()}
-        <button className={styles.nav_button} onClick={showModal}>
-          <img
-            className={styles.cart_icon}
-            src={cartIcon}
-            alt="Icon for the cart"
-          />
-        </button>
-        <p> ({cart.length}) </p>
+        <div className={styles.nav_icon_wrapper}onClick={showModal}>
+          <button className={styles.nav_button}>
+            <img
+              className={styles.cart_icon}
+              src={cartIcon}
+              alt="Icon for the cart"
+            />
+          </button>
+          <p> ({cart.length}) </p>
+        </div>
       </nav>
       {modalVisible && (
         <Modal

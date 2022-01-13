@@ -32,6 +32,7 @@ export const Routing = () => {
     }
     return <Outlet />;
   }
+
   return (
     <>
       <BrowserRouter>
@@ -47,13 +48,12 @@ export const Routing = () => {
               path={RoutingPath.OrderConfirmation}
               element={<OrderConfirmation />}
             />
+            <Route element={<RequireAuth />}>
+              <Route path={RoutingPath.Account} element={<Account />} />
+            </Route>
           </Route>
 
-          <Route element={<RequireAuth />}>
-            <Route path={RoutingPath.Account} element={<Account />} />
-
-            <Route path='*' element={<NotFound />} />
-          </Route>
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>

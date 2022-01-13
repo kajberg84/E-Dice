@@ -9,8 +9,15 @@
 
 .checkout_form input {
     padding: 10px 20px;
+    margin-bottom: 15px;
 }
 
 /* .checkout_product_cart_display {
 
 } */
+
+.checkout_form label {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-left: 10px;
+}

@@ -14,7 +14,7 @@ export const Footer = () => {
         </div>
         <Navbar navPosition="Bottom" />
         <nav className={styles.footer_nav}>
-          <Link classN ame={styles.footer_nav_item} to={RoutingPath.Terms}>
+          <Link className={styles.footer_nav_item} to={RoutingPath.Terms}>
             Terms and conditions
           </Link>
           <Link className={styles.footer_nav_item} to={RoutingPath.Privacy}>

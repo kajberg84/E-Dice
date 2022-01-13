@@ -3,10 +3,13 @@ import { useState, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { getUser } from "../../api/users";
 import { setLocalStorage } from "../../utils/localStorageHandler";
+import { useNavigate } from "react-router-dom";
+import { RoutingPath } from '../../routes/RoutingPath';
 // Styles
 import styles from "./Login.module.css";
 
 export const Login = () => {
+  let navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
@@ -35,6 +38,9 @@ export const Login = () => {
     } catch (error) {
       console.log("Login: ", error);
     }
+
+    navigate(`/${RoutingPath.Account}`)
+    // navigate("/account")
   }
 
   return (

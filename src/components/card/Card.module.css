@@ -41,6 +41,7 @@
   font-size: 1.6rem;
   cursor: pointer;
   margin-top: 10px;
+  border: 2px solid #000000;
 }
 
 .card_button:hover {

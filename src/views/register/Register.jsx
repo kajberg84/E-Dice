@@ -23,14 +23,13 @@ const registerSchema = yup
   })
   .required();
 
-// Register form function
 export function Register() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: 'onBlur',
+    mode: "onBlur",
     resolver: yupResolver(registerSchema),
   });
   const onSubmit = (data) => console.log(data);
@@ -47,7 +46,7 @@ export function Register() {
           <h3>Type in your information to register an account</h3>
 
           <input
-            {...register("firstName") }
+            {...register("firstName")}
             placeholder='Type in your first name'
           />
           <p>{errors.firstName?.message}</p>
@@ -80,11 +79,9 @@ export function Register() {
             placeholder='Confirm password'
           />
           <p>{errors.confirmPassword?.message}</p>
-          <button
-            type='submit'
-            className='inputButton'
-            value='create account'
-          />
+          <button type='submit' className='inputButton'>
+            Create account
+          </button>
         </form>
       </div>
     </div>

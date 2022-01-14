@@ -5,7 +5,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./Register.module.css";
 
-const schema = yup
+// Schema for formvalidating
+const registerSchema = yup
   .object({
     firstName: yup.string().required(),
     lastName: yup.string().required(),
@@ -22,13 +23,15 @@ const schema = yup
   })
   .required();
 
+// Register form function
 export function Register() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    mode: 'onBlur',
+    resolver: yupResolver(registerSchema),
   });
   const onSubmit = (data) => console.log(data);
 
@@ -44,7 +47,7 @@ export function Register() {
           <h3>Type in your information to register an account</h3>
 
           <input
-            {...register("firstName")}
+            {...register("firstName") }
             placeholder='Type in your first name'
           />
           <p>{errors.firstName?.message}</p>

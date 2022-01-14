@@ -13,7 +13,8 @@ import CustomLink from "../../utils/CustomLink";
 import styles from "./Navbar.module.css";
 
 // Images
-import cartIcon from "../../assets/images/shopping_cart_icon.svg";
+import emptyCartIcon from "../../assets/images/shopping_cart_icon.svg";
+import cartIcon from "../../assets/images/shopping_cart_plus.svg";
 
 export const Navbar = (props) => {
   const { navPosition } = props;
@@ -82,11 +83,19 @@ export const Navbar = (props) => {
         {user ? authNavbar() : unAuthNavbar()}
         <div className={styles.nav_icon_wrapper} onClick={showModal}>
           <button className={styles.nav_button}>
-            <img
-              className={styles.cart_icon}
-              src={cartIcon}
-              alt='Icon for the cart'
-            />
+            {cart.length <= 0 ? (
+              <img
+                className={styles.cart_icon}
+                src={emptyCartIcon}
+                alt="Icon for the cart"
+              />
+            ) : (
+              <img
+                className={styles.cart_icon}
+                src={cartIcon}
+                alt="Icon for the cart"
+              />
+            )}
           </button>
           <p> ({cart.length}) </p>
         </div>
@@ -94,7 +103,7 @@ export const Navbar = (props) => {
       {modalVisible && (
         <Modal
           passedPosition={navPositionClicked}
-          title='Shopping cart'
+          title="Shopping cart"
           content={<Cart />}
           actions={
             <div>

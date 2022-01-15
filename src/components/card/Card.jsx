@@ -7,7 +7,7 @@ import styles from "./Card.module.css";
 import { Cart } from "../cart/Cart";
 
 export const Card = ({ product }) => {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart, total, setTotal } = useContext(CartContext);
   const [showModal, setShowModal] = useState(false);
   const handleModal = () => {
     setShowModal(true);
@@ -19,8 +19,20 @@ export const Card = ({ product }) => {
   };
 
   const addToCart = (product) => {
-    // setCart([...cart, product]);
-    setCart((prevState) => [...cart, product]);
+    console.log(product.title);
+    console.log(cart);
+    const checkCartForProduct = cart.findIndex(
+      (item) => item.title === product.title
+    );
+    // console.log(checkCartForProduct);
+
+    if (checkCartForProduct !== -1) {
+      cart[checkCartForProduct].quantity += 1;
+      setTotal(total + 1);
+    } else {
+      setCart([...cart, product]);
+      setTotal(total + 1);
+    }
   };
 
   return (

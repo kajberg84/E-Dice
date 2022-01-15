@@ -24,7 +24,7 @@ export const Navbar = (props) => {
 
   const [modalVisible, setModalvisible] = useState(false);
 
-  const { cart } = useContext(CartContext);
+  const { cart, total, setTotal } = useContext(CartContext);
 
   const navigate = useNavigate();
 
@@ -83,7 +83,7 @@ export const Navbar = (props) => {
         {user ? authNavbar() : unAuthNavbar()}
         <div className={styles.nav_icon_wrapper} onClick={showModal}>
           <button className={styles.nav_button}>
-            {cart.length <= 0 ? (
+            {total <= 0 ? (
               <img
                 className={styles.cart_icon}
                 src={emptyCartIcon}
@@ -97,7 +97,7 @@ export const Navbar = (props) => {
               />
             )}
           </button>
-          <p> ({cart.length}) </p>
+          <p> ({total}) </p>
         </div>
       </nav>
       {modalVisible && (

@@ -5,18 +5,16 @@ import style from "./Cart.module.css";
 export const Cart = () => {
   const { cart } = useContext(CartContext);
 
-  const count = 2;
-
   return (
     <div>
       {cart.length <= 0 && <p>Your shopping cart is empty...</p>}
       <ul>
-        {cart.map((product) => (
-          <li className={style.li_style} key={cart.index}>
+        {cart.map((product, index) => (
+          <li className={style.li_style} key={index}>
             <span>
-              {count} {product.title}
+              {product.quantity} {product.title}
             </span>
-            <div>{product.price * count} $</div>
+            <div>{product.price * product.quantity} $</div>
           </li>
         ))}
       </ul>

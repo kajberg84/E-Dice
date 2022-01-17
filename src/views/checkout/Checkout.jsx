@@ -17,27 +17,15 @@ export const Checkout = () => {
 
   // Controll user, populate orderInfo with "" object or userinfo.
 
-  const [orderInfo, setOrderInfo] = useState(
-    user
-      ? {
-          firstname: user.fname,
-          lastname: user.lname,
-          adress: user.adress,
-          zipcode: user.zipCode,
-          city: user.city,
-          phone: user.phone,
-          email: user.email,
-        }
-      : {
-          firstname: "",
-          lastname: "",
-          adress: "",
-          zipcode: "",
-          city: "",
-          phone: "",
-          email: "",
-        }
-  );
+  const [orderInfo, setOrderInfo] = useState({
+    firstname: user?.fname || "",
+    lastname: user?.lname || "",
+    adress: user?.adress || "",
+    zipcode: user?.zipCode || "",
+    city: user?.city || "",
+    phone: user?.phone || "",
+    email: user?.email || "",
+  });
 
   //Eventhandler on input fields
   const handleInput = (e) => {

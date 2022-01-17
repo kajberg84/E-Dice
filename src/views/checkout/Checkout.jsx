@@ -3,13 +3,52 @@ import { ProductCardSmall } from "../../components/productcardsmall/ProductCardS
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { CartContext } from "../../context/CartContext";
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { RoutingPath } from "../../routes/RoutingPath";
 // styles
 import styles from "./Checkout.module.css";
 
 export const Checkout = () => {
   const { user } = useContext(UserContext);
   const { cart } = useContext(CartContext);
+
+  const navigate = useNavigate();
+
+  const [orderInfo, setOrderInfo] = useState(
+    user
+      ? {
+          firstname: user.fname,
+          lastname: user.lname,
+          adress: user.adress,
+          zipcode: user.zipCode,
+          city: user.city,
+          phone: user.phone,
+          email: user.email,
+        }
+      : {
+          firstname: "",
+          lastname: "",
+          adress: "",
+          zipcode: "",
+          city: "",
+          phone: "",
+          email: "",
+        }
+  );
+
+  const handleInput = (e) => {
+    setOrderInfo({ ...orderInfo, [e.target.name]: e.target.value });
+  };
+
+  const handleOrder = (e) => {
+    e.preventDefault();
+    navigate(`../${RoutingPath.OrderConfirmation}`);
+    console.log(
+      "your order with details:" + JSON.stringify(orderInfo) + " is confirmed"
+    );
+  };
+
   return (
     <>
       <Hero title="Checkout" />
@@ -17,8 +56,9 @@ export const Checkout = () => {
         <div className={styles.checkout_product_list}>
           <div className={styles.checkout_product_cart_display}>
             <h2>Your cart</h2>
-            {cart.map((product) => (
+            {cart.map((product, index) => (
               <ProductCardSmall
+                key={index}
                 title={product.title}
                 description={product.description}
                 quantity={product.quantity}
@@ -28,34 +68,71 @@ export const Checkout = () => {
           </div>
         </div>
         {!user && (
-          <form className={styles.checkout_form}>
+          <form className={styles.checkout_form} onSubmit={handleOrder}>
             <h3>Type in your information to make a order</h3>
-            <input type="text" name="first-name" placeholder="First name..." />
-            <input type="text" name="last-name" placeholder="Last name..." />
-            <input type="text" name="adress" placeholder="Address..." />
-            <input type="text" name="zip-code" placeholder="Zip code..." />
-            <input type="text" name="city" placeholder="City..." />
-            <input type="text" name="phone" placeholder="Phone number..." />
-            <input type="email" name="email" placeholder="E-mail..." />
-            <input type="button" value="Confirm order" />
+            <input
+              type="text"
+              name="firstname"
+              placeholder="First name..."
+              onChange={handleInput}
+            />
+            <input
+              type="text"
+              name="lastname"
+              placeholder="Last name..."
+              onChange={handleInput}
+            />
+            <input
+              type="text"
+              name="adress"
+              placeholder="Address..."
+              onChange={handleInput}
+            />
+            <input
+              type="text"
+              name="zipcode"
+              placeholder="Zip code..."
+              onChange={handleInput}
+            />
+            <input
+              type="text"
+              name="city"
+              placeholder="City..."
+              onChange={handleInput}
+            />
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone number..."
+              onChange={handleInput}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="E-mail..."
+              onChange={handleInput}
+            />
+            <input type="button" value="Confirm order" onChange={handleInput} />
           </form>
         )}
         {user && (
-          <form className={styles.checkout_form}>
+          <form className={styles.checkout_form} onSubmit={handleOrder}>
             <h3>{user.fname}, controll your information to make a order</h3>
             <label>First Name</label>
             <input
               type="text"
-              name="first-name"
+              name="firstname"
               defaultValue={user.fname}
               placeholder="First name..."
+              onChange={handleInput}
             />
             <label>Last Name</label>
             <input
               type="text"
-              name="last-name"
+              name="lastname"
               defaultValue={user.lname}
               placeholder="Last name..."
+              onChange={handleInput}
             />
             <label>Adress</label>
             <input
@@ -63,13 +140,15 @@ export const Checkout = () => {
               name="adress"
               defaultValue={user.adress}
               placeholder="Address..."
+              onChange={handleInput}
             />
             <label>Zip Code</label>
             <input
               type="text"
-              name="zip-code"
+              name="zipcode"
               defaultValue={user.zipCode}
               placeholder="Zip code..."
+              onChange={handleInput}
             />
             <label>City</label>
             <input
@@ -77,6 +156,7 @@ export const Checkout = () => {
               name="city"
               defaultValue={user.city}
               placeholder="City..."
+              onChange={handleInput}
             />
             <label>Phone</label>
             <input
@@ -84,6 +164,7 @@ export const Checkout = () => {
               name="phone"
               defaultValue={user.phone}
               placeholder="Phone number..."
+              onChange={handleInput}
             />
             <label>E-mail</label>
             <input
@@ -91,8 +172,11 @@ export const Checkout = () => {
               name="email"
               defaultValue={user.email}
               placeholder="E-mail..."
+              onChange={handleInput}
             />
-            <input type="button" value="Confirm order" />
+            <button type="submit" className={styles.checkout_button}>
+              Confirm order
+            </button>
           </form>
         )}
       </div>

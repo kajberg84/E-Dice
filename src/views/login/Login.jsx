@@ -4,7 +4,7 @@ import { UserContext } from "../../context/UserContext";
 import { getUser } from "../../api/users";
 import { setLocalStorage } from "../../utils/localStorageHandler";
 import { useNavigate } from "react-router-dom";
-import { RoutingPath } from '../../routes/RoutingPath';
+import { RoutingPath } from "../../routes/RoutingPath";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -60,7 +60,7 @@ export const Login = () => {
         <form onSubmit={handleSubmit(onSubmit)} className={styles.login_form}>
           <input
             {...register("email")}
-            placeholder='Type in your email'
+            placeholder="Type in your email"
             onChange={(e) => {
               setUserEmail(e.target.value);
             }}
@@ -68,12 +68,12 @@ export const Login = () => {
           <p>{errors.email?.message}</p>
           <input
             {...register("password")}
-            placeholder='Type in your password'
+            placeholder="Type in your password"
             onChange={(e) => {
               setUserPassword(e.target.value);
             }}
           />
-          <button type='submit' className={`${styles.loginbutton} inputButton`}>
+          <button type="submit" className={`${styles.loginbutton} formButton`}>
             Sign in
           </button>
         </form>

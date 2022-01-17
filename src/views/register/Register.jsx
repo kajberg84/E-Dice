@@ -36,7 +36,7 @@ export function Register() {
 
   return (
     <div className={styles.register_container}>
-      <Hero title='Sign Up to E-dice' />
+      <Hero title="Sign Up to E-dice" />
 
       <div className={styles.register_wrapper}>
         <form
@@ -47,39 +47,39 @@ export function Register() {
 
           <input
             {...register("firstName")}
-            placeholder='Type in your first name'
+            placeholder="Type in your first name"
           />
           <p>{errors.firstName?.message}</p>
           <input
             {...register("lastName")}
-            placeholder='Type in your last name'
+            placeholder="Type in your last name"
           />
           <p>{errors.lastName?.message}</p>
-          <input {...register("adress")} placeholder='Type in your address' />
+          <input {...register("adress")} placeholder="Type in your address" />
           <p>{errors.adress?.message}</p>
-          <input {...register("city")} placeholder='Type in your city' />
+          <input {...register("city")} placeholder="Type in your city" />
           <p>{errors.city?.message}</p>
-          <input {...register("zipCode")} placeholder='Type in your zip code' />
+          <input {...register("zipCode")} placeholder="Type in your zip code" />
           <p>{errors.zipCode?.message}</p>
           <input
             {...register("phone")}
-            placeholder='Type in your phone number'
+            placeholder="Type in your phone number"
           />
           <p>{errors.phone?.message}</p>
           <input
             {...register("email")}
-            placeholder='Type in your e-mail address'
+            placeholder="Type in your e-mail address"
           />
           <p>{errors.email?.message}</p>
-          <input {...register("password")} placeholder='Choose a password' />
+          <input {...register("password")} placeholder="Choose a password" />
           <p>{errors.password?.message}</p>
 
           <input
             {...register("confirmPassword")}
-            placeholder='Confirm password'
+            placeholder="Confirm password"
           />
           <p>{errors.confirmPassword?.message}</p>
-          <button type='submit' className='inputButton'>
+          <button type="submit" className="formButton">
             Create account
           </button>
         </form>

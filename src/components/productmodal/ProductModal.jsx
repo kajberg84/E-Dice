@@ -9,13 +9,11 @@ import styles from "./ProductModal.module.css";
 export const ProductModal = ({ product, closeModal }) => {
   const { cart, setCart, total, setTotal } = useContext(CartContext);
 
+  // Add to cart, if product already in cart, increment quantity instead.
   const addToCart = (product) => {
-    // console.log(product.title);
-    // console.log(cart);
     const checkCartForProduct = cart.findIndex(
       (item) => item.title === product.title
     );
-    // console.log(checkCartForProduct);
 
     if (checkCartForProduct !== -1) {
       cart[checkCartForProduct].quantity += 1;

@@ -24,8 +24,6 @@ export const Cart = () => {
       cart.splice(checkCartForProduct, 1);
       setTotal(total - 1);
     }
-
-    console.log(cart);
   };
 
   return (

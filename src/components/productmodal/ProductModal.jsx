@@ -1,29 +1,12 @@
 import ReactDOM from "react-dom";
 import icon from "../../assets/icons/x-circle.svg";
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+
+import { AddToCartButton } from "../addToCartButton/AddToCartButton";
 
 // styles
 import styles from "./ProductModal.module.css";
 
 export const ProductModal = ({ product, closeModal }) => {
-  const { cart, setCart, total, setTotal } = useContext(CartContext);
-
-  // Add to cart, if product already in cart, increment quantity instead.
-  const addToCart = (product) => {
-    const checkCartForProduct = cart.findIndex(
-      (item) => item.title === product.title
-    );
-
-    if (checkCartForProduct !== -1) {
-      cart[checkCartForProduct].quantity += 1;
-      setTotal(total + 1);
-    } else {
-      setCart([...cart, product]);
-      setTotal(total + 1);
-    }
-  };
-
   return ReactDOM.createPortal(
     <div className={styles.modal_backdrop}>
       <div className={styles.modal}>
@@ -48,12 +31,7 @@ export const ProductModal = ({ product, closeModal }) => {
               Material: {product.material}
             </p>
             <h3 className={styles.modal_price}>{product.price} $</h3>
-            <button
-              className={styles.modal_add_to_cart_button}
-              onClick={() => addToCart(product)}
-            >
-              Add to Cart
-            </button>
+            <AddToCartButton product={product} />
           </div>
         </div>
       </div>

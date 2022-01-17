@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { ProductModal } from "../productmodal/ProductModal";
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+
+import { AddToCartButton } from "../addToCartButton/AddToCartButton";
 // styles
 import styles from "./Card.module.css";
-import { Cart } from "../cart/Cart";
 
 export const Card = ({ product }) => {
-  const { cart, setCart, total, setTotal } = useContext(CartContext);
   const [showModal, setShowModal] = useState(false);
   const handleModal = () => {
     setShowModal(true);
@@ -16,21 +14,6 @@ export const Card = ({ product }) => {
 
   const closeModal = () => {
     setShowModal(false);
-  };
-
-  // Add to cart, if product already in cart, increment quantity instead.
-  const addToCart = (product) => {
-    const checkCartForProduct = cart.findIndex(
-      (item) => item.title === product.title
-    );
-
-    if (checkCartForProduct !== -1) {
-      cart[checkCartForProduct].quantity += 1;
-      setTotal(total + 1);
-    } else {
-      setCart([...cart, product]);
-      setTotal(total + 1);
-    }
   };
 
   return (
@@ -44,12 +27,7 @@ export const Card = ({ product }) => {
           <p className={styles.card_description}>{product.description}</p>
           <p className={styles.card_material}>Material: {product.material}</p>
           <h3 className={styles.card_price}>{product.price} $</h3>
-          <button
-            className={styles.card_button}
-            onClick={() => addToCart(product)}
-          >
-            Add to Cart
-          </button>
+          <AddToCartButton product={product} />
         </div>
       </div>
       {showModal && <ProductModal product={product} closeModal={closeModal} />}

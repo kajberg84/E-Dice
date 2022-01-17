@@ -112,7 +112,9 @@ export const Checkout = () => {
               placeholder="E-mail..."
               onChange={handleInput}
             />
-            <input type="button" value="Confirm order" onChange={handleInput} />
+            <button type="submit" className={styles.checkout_button}>
+              Confirm order
+            </button>
           </form>
         )}
         {user && (

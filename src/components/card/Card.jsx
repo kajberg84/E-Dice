@@ -19,8 +19,8 @@ export const Card = ({ product }) => {
   };
 
   const addToCart = (product) => {
-    console.log(product.title);
-    console.log(cart);
+    // console.log(product.title);
+    // console.log(cart);
     const checkCartForProduct = cart.findIndex(
       (item) => item.title === product.title
     );

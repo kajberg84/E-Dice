@@ -1,7 +1,7 @@
 // styles
-import styles from './ProductCardSmall.module.css';
+import styles from "./ProductCardSmall.module.css";
 
-export const ProductCardSmall = ({ title, description, price }) => {
+export const ProductCardSmall = ({ title, description, quantity, price }) => {
   return (
     <div className={styles.product_card_small_wrapper}>
       <div className={styles.product_card_small_items}>
@@ -11,6 +11,10 @@ export const ProductCardSmall = ({ title, description, price }) => {
       <div className={styles.product_card_small_items}>
         <h4>Description:</h4>
         <p>{description}</p>
+      </div>
+      <div className={styles.product_card_small_items}>
+        <h4>Quantity:</h4>
+        <p>{quantity}</p>
       </div>
       <div className={styles.product_card_small_items}>
         <h4>Price:</h4>

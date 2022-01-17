@@ -1,4 +1,17 @@
 .li_style {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.cart_button {
+  width: 20px;
+  height: 20px;
+  outline: none;
+
+  background-color: #000000;
+  color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 1px solid #000000;
 }

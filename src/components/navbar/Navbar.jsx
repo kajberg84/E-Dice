@@ -67,7 +67,6 @@ export const Navbar = (props) => {
   const showModal = () => {
     setModalvisible(!modalVisible);
     setNavPositionClicked(navPosition);
-    console.log(navPositionClicked);
   };
 
   // Checkoutbutton in shopping cart modal

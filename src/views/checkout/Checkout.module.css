@@ -1,15 +1,15 @@
 .checkout_wrapper {
-    max-width: 1200px;
-    margin: 50px auto;
+  max-width: 1200px;
+  margin: 50px auto;
 }
 
 .checkout_wrapper h3 {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
 .checkout_form input {
-    padding: 10px 20px;
-    margin-bottom: 15px;
+  padding: 10px 20px;
+  margin-bottom: 15px;
 }
 
 /* .checkout_product_cart_display {
@@ -17,7 +17,27 @@
 } */
 
 .checkout_form label {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-left: 10px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.checkout_button {
+  border: none;
+  width: 100%;
+  outline: none;
+  padding: 12px 18px;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin-top: 10px;
+  border: 2px solid #000000;
+}
+
+.checkout_button:hover {
+  background-color: #fff;
+  color: #000000;
+  border: 2px solid #000000;
 }

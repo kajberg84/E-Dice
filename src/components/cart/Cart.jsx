@@ -13,14 +13,19 @@ export const Cart = () => {
     product.quantity += 1;
     setTotal(total + 1);
   };
-  const decrementQuantity = (product, index) => {
+  const decrementQuantity = (product) => {
+    const checkCartForProduct = cart.findIndex(
+      (item) => item.title === product.title
+    );
     if (product.quantity > 1) {
       product.quantity -= 1;
       setTotal(total - 1);
     } else if (product.quantity === 1) {
-      cart.splice(index, 1);
+      cart.splice(checkCartForProduct, 1);
       setTotal(total - 1);
     }
+
+    console.log(cart);
   };
 
   return (

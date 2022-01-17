@@ -71,120 +71,73 @@ export const Checkout = () => {
             ))}
           </div>
         </div>
-        {!user && (
-          <form className={styles.checkout_form} onSubmit={handleOrder}>
-            <h3>Type in your information to make a order</h3>
-            <input
-              type="text"
-              name="firstname"
-              placeholder="First name..."
-              onChange={handleInput}
-            />
-            <input
-              type="text"
-              name="lastname"
-              placeholder="Last name..."
-              onChange={handleInput}
-            />
-            <input
-              type="text"
-              name="adress"
-              placeholder="Address..."
-              onChange={handleInput}
-            />
-            <input
-              type="text"
-              name="zipcode"
-              placeholder="Zip code..."
-              onChange={handleInput}
-            />
-            <input
-              type="text"
-              name="city"
-              placeholder="City..."
-              onChange={handleInput}
-            />
-            <input
-              type="text"
-              name="phone"
-              placeholder="Phone number..."
-              onChange={handleInput}
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="E-mail..."
-              onChange={handleInput}
-            />
-            <button type="submit" className={styles.checkout_button}>
-              Confirm order
-            </button>
-          </form>
-        )}
-        {user && (
-          <form className={styles.checkout_form} onSubmit={handleOrder}>
+        <form className={styles.checkout_form} onSubmit={handleOrder}>
+          {user ? (
             <h3>{user.fname}, controll your information to make a order</h3>
-            <label>First Name</label>
-            <input
-              type="text"
-              name="firstname"
-              defaultValue={user.fname}
-              placeholder="First name..."
-              onChange={handleInput}
-            />
-            <label>Last Name</label>
-            <input
-              type="text"
-              name="lastname"
-              defaultValue={user.lname}
-              placeholder="Last name..."
-              onChange={handleInput}
-            />
-            <label>Adress</label>
-            <input
-              type="text"
-              name="adress"
-              defaultValue={user.adress}
-              placeholder="Address..."
-              onChange={handleInput}
-            />
-            <label>Zip Code</label>
-            <input
-              type="text"
-              name="zipcode"
-              defaultValue={user.zipCode}
-              placeholder="Zip code..."
-              onChange={handleInput}
-            />
-            <label>City</label>
-            <input
-              type="text"
-              name="city"
-              defaultValue={user.city}
-              placeholder="City..."
-              onChange={handleInput}
-            />
-            <label>Phone</label>
-            <input
-              type="text"
-              name="phone"
-              defaultValue={user.phone}
-              placeholder="Phone number..."
-              onChange={handleInput}
-            />
-            <label>E-mail</label>
-            <input
-              type="email"
-              name="email"
-              defaultValue={user.email}
-              placeholder="E-mail..."
-              onChange={handleInput}
-            />
-            <button type="submit" className="formButton">
-              Confirm order
-            </button>
-          </form>
-        )}
+          ) : (
+            <h3>Type in your information to make a order</h3>
+          )}
+
+          <label>First Name</label>
+          <input
+            type="text"
+            name="firstname"
+            defaultValue={orderInfo.firstname}
+            placeholder="First name..."
+            onChange={handleInput}
+          />
+          <label>Last Name</label>
+          <input
+            type="text"
+            name="lastname"
+            defaultValue={orderInfo.lastname}
+            placeholder="Last name..."
+            onChange={handleInput}
+          />
+          <label>Adress</label>
+          <input
+            type="text"
+            name="adress"
+            defaultValue={orderInfo.adress}
+            placeholder="Address..."
+            onChange={handleInput}
+          />
+          <label>Zip Code</label>
+          <input
+            type="text"
+            name="zipcode"
+            defaultValue={orderInfo.zipcode}
+            placeholder="Zip code..."
+            onChange={handleInput}
+          />
+          <label>City</label>
+          <input
+            type="text"
+            name="city"
+            defaultValue={orderInfo.city}
+            placeholder="City..."
+            onChange={handleInput}
+          />
+          <label>Phone</label>
+          <input
+            type="text"
+            name="phone"
+            defaultValue={orderInfo.phone}
+            placeholder="Phone number..."
+            onChange={handleInput}
+          />
+          <label>E-mail</label>
+          <input
+            type="email"
+            name="email"
+            defaultValue={orderInfo.email}
+            placeholder="E-mail..."
+            onChange={handleInput}
+          />
+          <button type="submit" className="formButton">
+            Confirm order
+          </button>
+        </form>
       </div>
     </>
   );

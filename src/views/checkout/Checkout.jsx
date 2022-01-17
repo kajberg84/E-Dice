@@ -15,6 +15,8 @@ export const Checkout = () => {
 
   const navigate = useNavigate();
 
+  // Controll user, populate orderInfo with "" object or userinfo.
+
   const [orderInfo, setOrderInfo] = useState(
     user
       ? {
@@ -37,10 +39,12 @@ export const Checkout = () => {
         }
   );
 
+  //Eventhandler on input fields
   const handleInput = (e) => {
     setOrderInfo({ ...orderInfo, [e.target.name]: e.target.value });
   };
 
+  // Submit order function
   const handleOrder = (e) => {
     e.preventDefault();
     navigate(`../${RoutingPath.OrderConfirmation}`);
@@ -176,7 +180,7 @@ export const Checkout = () => {
               placeholder="E-mail..."
               onChange={handleInput}
             />
-            <button type="submit" className={styles.checkout_button}>
+            <button type="submit" className="formButton">
               Confirm order
             </button>
           </form>

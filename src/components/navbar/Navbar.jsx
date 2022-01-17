@@ -24,16 +24,18 @@ export const Navbar = (props) => {
 
   const [modalVisible, setModalvisible] = useState(false);
 
-  const { cart, total, setTotal } = useContext(CartContext);
+  const { total } = useContext(CartContext);
 
   const navigate = useNavigate();
 
+  // Logout function
   const handleLogout = () => {
     removeLocalStorage("edice-user");
     setUser(null);
     navigate(RoutingPath.Login);
   };
 
+  // Navbar links if not logged in.
   const unAuthNavbar = () => {
     return (
       <>
@@ -47,6 +49,7 @@ export const Navbar = (props) => {
     );
   };
 
+  //Navbar links if logged in
   const authNavbar = () => {
     return (
       <>
@@ -60,12 +63,14 @@ export const Navbar = (props) => {
     );
   };
 
+  //Shopping cart modal
   const showModal = () => {
     setModalvisible(!modalVisible);
     setNavPositionClicked(navPosition);
     console.log(navPositionClicked);
   };
 
+  // Checkoutbutton in shopping cart modal
   const handleToCheckout = () => {
     navigate(RoutingPath.Checkout);
     setModalvisible(false);

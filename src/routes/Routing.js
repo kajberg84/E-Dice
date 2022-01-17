@@ -10,8 +10,6 @@ import { Register } from "../views/register/Register";
 import { Terms } from "../views/terms/Terms";
 import { Privacy } from "../views/privacy/Privacy";
 import { NotFound } from "../views/notfound/NotFound";
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
 import { AuthRoute } from "./AuthRoute";
 import { UnAuthRoute } from "./UnAuthRoutes";
 
@@ -37,7 +35,6 @@ export const Routing = () => {
               path={RoutingPath.OrderConfirmation}
               element={<OrderConfirmation />}
             />
-
             <Route
               path={RoutingPath.Account}
               element={
@@ -46,7 +43,6 @@ export const Routing = () => {
                 </AuthRoute>
               }
             />
-
             <Route
               path={RoutingPath.Login}
               element={

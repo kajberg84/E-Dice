@@ -25,7 +25,6 @@ export const AddToCartButton = (props) => {
 
   return (
     <>
-      {" "}
       <button className={styles.card_button} onClick={() => addToCart(product)}>
         Add to Cart
       </button>

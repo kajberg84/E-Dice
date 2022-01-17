@@ -5,7 +5,7 @@ import plus from "../../assets/icons/add_white_24dp.svg";
 import minus from "../../assets/icons/remove_white_24dp.svg";
 
 export const Cart = () => {
-  const { cart, setCart, total, setTotal } = useContext(CartContext);
+  const { cart, total, setTotal } = useContext(CartContext);
 
   //Funktionalitet för att öka eller minska antalet producter i varukorgen.
 

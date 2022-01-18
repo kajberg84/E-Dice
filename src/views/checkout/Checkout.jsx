@@ -3,11 +3,26 @@ import { ProductCardSmall } from "../../components/productcardsmall/ProductCardS
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { CartContext } from "../../context/CartContext";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RoutingPath } from "../../routes/RoutingPath";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 // styles
 import styles from "./Checkout.module.css";
+
+// Schema for formvalidating
+const shippingSchema = yup
+  .object({
+    firstName: yup.string().required(),
+    lastName: yup.string().required(),
+    address: yup.string().required(),
+    zipCode: yup.string().required(),
+    city: yup.string().required(),
+    phone: yup.string().required(),
+    email: yup.string().email().required(),
+  })
+  .required();
 
 export const Checkout = () => {
   const { user } = useContext(UserContext);
@@ -15,31 +30,22 @@ export const Checkout = () => {
 
   const navigate = useNavigate();
 
-  // Controll user, populate orderInfo with "" object or userinfo.
-
-  const [orderInfo, setOrderInfo] = useState({
-    firstname: user?.fname || "",
-    lastname: user?.lname || "",
-    adress: user?.adress || "",
-    zipcode: user?.zipCode || "",
-    city: user?.city || "",
-    phone: user?.phone || "",
-    email: user?.email || "",
-  });
-
-  //Eventhandler on input fields
-  const handleInput = (e) => {
-    setOrderInfo({ ...orderInfo, [e.target.name]: e.target.value });
-  };
-
   // Submit order function
-  const handleOrder = (e) => {
-    e.preventDefault();
+  const onSubmit = (values) => {
     navigate(`../${RoutingPath.OrderConfirmation}`);
     console.log(
-      "your order with details:" + JSON.stringify(orderInfo) + " is confirmed"
+      "your order with details:" + JSON.stringify(values) + " is confirmed"
     );
   };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: "onBlur",
+    resolver: yupResolver(shippingSchema),
+  });
 
   return (
     <>
@@ -59,7 +65,10 @@ export const Checkout = () => {
             ))}
           </div>
         </div>
-        <form className={styles.checkout_form} onSubmit={handleOrder}>
+        <form
+          className={styles.checkout_form}
+          onSubmit={handleSubmit(onSubmit)}
+        >
           {user ? (
             <h3>{user.fname}, controll your information to make a order</h3>
           ) : (
@@ -68,60 +77,61 @@ export const Checkout = () => {
 
           <label>First Name</label>
           <input
-            type="text"
-            name="firstname"
-            defaultValue={orderInfo.firstname}
+            {...register("firstName")}
+            autoComplete="given-name"
             placeholder="First name..."
-            onChange={handleInput}
+            defaultValue={user?.fname}
           />
+          <p>{errors.firstName?.message}</p>
+
           <label>Last Name</label>
           <input
-            type="text"
-            name="lastname"
-            defaultValue={orderInfo.lastname}
+            {...register("lastName")}
+            autoComplete="family-name"
             placeholder="Last name..."
-            onChange={handleInput}
+            defaultValue={user?.lname}
           />
+          <p>{errors.lastName?.message}</p>
           <label>Adress</label>
           <input
-            type="text"
-            name="adress"
-            defaultValue={orderInfo.adress}
+            {...register("address")}
+            autoComplete="street-address"
             placeholder="Address..."
-            onChange={handleInput}
+            defaultValue={user?.adress}
           />
+          <p>{errors.address?.message}</p>
           <label>Zip Code</label>
           <input
-            type="text"
-            name="zipcode"
-            defaultValue={orderInfo.zipcode}
+            {...register("zipCode")}
+            autoComplete="postal-code"
             placeholder="Zip code..."
-            onChange={handleInput}
+            defaultValue={user?.zipCode}
           />
+          <p>{errors.zipCode?.message}</p>
           <label>City</label>
           <input
-            type="text"
-            name="city"
-            defaultValue={orderInfo.city}
+            {...register("city")}
+            autoComplete="city"
             placeholder="City..."
-            onChange={handleInput}
+            defaultValue={user?.city}
           />
+          <p>{errors.city?.message}</p>
           <label>Phone</label>
           <input
-            type="text"
-            name="phone"
-            defaultValue={orderInfo.phone}
+            {...register("phone")}
+            autoComplete="tel"
             placeholder="Phone number..."
-            onChange={handleInput}
+            defaultValue={user?.phone}
           />
+          <p>{errors.phone?.message}</p>
           <label>E-mail</label>
           <input
-            type="email"
-            name="email"
-            defaultValue={orderInfo.email}
+            {...register("email")}
+            autoComplete="email"
             placeholder="E-mail..."
-            onChange={handleInput}
+            defaultValue={user?.email}
           />
+          <p>{errors.email?.message}</p>
           <button type="submit" className="formButton">
             Confirm order
           </button>

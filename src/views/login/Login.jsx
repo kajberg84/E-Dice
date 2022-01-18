@@ -1,5 +1,5 @@
 //Imports
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { getUser } from "../../api/users";
 import { setLocalStorage } from "../../utils/localStorageHandler";
@@ -22,8 +22,7 @@ const loginSchema = yup
 export const Login = () => {
   let navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
-  const [userEmail, setUserEmail] = useState("");
-  const [userPassword, setUserPassword] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -37,7 +36,7 @@ export const Login = () => {
   const onSubmit = async (data) => {
     console.log(data);
     try {
-      const responseUser = await getUser(userEmail, userPassword);
+      const responseUser = await getUser(data.email, data.password);
 
       if (!responseUser) {
         alert("Wrong email/ password or no user found");
@@ -58,20 +57,11 @@ export const Login = () => {
       <div className={styles.login_wrapper}>
         <h2>Sign In to E-dice</h2>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.login_form}>
-          <input
-            {...register("email")}
-            placeholder="Type in your email"
-            onChange={(e) => {
-              setUserEmail(e.target.value);
-            }}
-          />
+          <input {...register("email")} placeholder="Type in your email" />
           <p>{errors.email?.message}</p>
           <input
             {...register("password")}
             placeholder="Type in your password"
-            onChange={(e) => {
-              setUserPassword(e.target.value);
-            }}
           />
           <button type="submit" className={`${styles.loginbutton} formButton`}>
             Sign in

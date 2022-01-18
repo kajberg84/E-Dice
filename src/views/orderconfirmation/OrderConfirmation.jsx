@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Hero } from "../../components/hero/Hero";
 import { ProductCardSmall } from "../../components/productcardsmall/ProductCardSmall";
 import { CartContext } from "../../context/CartContext";
@@ -7,7 +7,13 @@ import { CartContext } from "../../context/CartContext";
 import styles from "./OrderConfirmation.module.css";
 
 export const OrderConfirmation = () => {
-  const { cart } = useContext(CartContext);
+  const { cart, setCart, setTotal } = useContext(CartContext);
+  const [order, setOrder] = useState(cart);
+
+  useEffect(() => {
+    setCart([]);
+    setTotal(0);
+  }, []);
 
   return (
     <div className={styles.order_confirmation_container}>
@@ -18,7 +24,7 @@ export const OrderConfirmation = () => {
           <h4 className={styles.order_confirmation_heading4}>
             Products ordered:
           </h4>
-          {cart.map((product, index) => (
+          {order.map((product, index) => (
             <ProductCardSmall
               key={index}
               title={product.title}

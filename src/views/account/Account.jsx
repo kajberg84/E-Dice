@@ -1,10 +1,10 @@
-import { Hero } from '../../components/hero/Hero';
-import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { UserContext } from '../../context/UserContext';
+import { Hero } from "../../components/hero/Hero";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 // styles
-import styles from './Account.module.css';
+import styles from "./Account.module.css";
 
 export const Account = () => {
   const { user } = useContext(UserContext);
@@ -16,13 +16,11 @@ export const Account = () => {
 
       <div className={styles.account_wrapper}>
         <div className={styles.account_content}>
-          <h2>Find some amazing dices in our shop</h2>
+          <h2>Find some amazing dice sets in our shop</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-            rerum quaerat, ipsa aperiam veritatis qui amet eum at dolor vero
-            nemo facere hic corporis tempore voluptatibus? Aliquid similique
-            ipsam labore aspernatur est quae, explicabo eius ea quibusdam
-            reprehenderit sunt unde.
+            It's time to find out how you roll! <br />
+            We pride ourselfs on our well balanced and beautiful dice. Check out
+            our shop to get yours today!
           </p>
           <Link to="/">
             <button className={styles.account_button}>Shop Dices</button>

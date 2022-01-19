@@ -21,7 +21,7 @@ const loginSchema = yup
 
 export const Login = () => {
   let navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const {
     register,
@@ -34,7 +34,6 @@ export const Login = () => {
 
   // On submit
   const onSubmit = async (data) => {
-    console.log(data);
     try {
       const responseUser = await getUser(data.email, data.password);
 

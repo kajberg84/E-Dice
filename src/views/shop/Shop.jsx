@@ -1,14 +1,17 @@
-import { ProductsWrapper } from '../../components/productswrapper/ProductsWrapper';
-import { Hero } from '../../components/hero/Hero';
+import { ProductsWrapper } from "../../components/productswrapper/ProductsWrapper";
+import { Hero } from "../../components/hero/Hero";
 
 // styles
-import styles from './Shop.module.css';
+import styles from "./Shop.module.css";
 
 export const Shop = () => {
   return (
     <>
       <Hero title="A store of dices">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium fugit consequatur dolor amet quae asperiores consectetur error quibusdam inventore recusandae?
+        All our dice sets contain one of each of these types of dice: d4, d6,
+        d8, d10, d12, d20 and a d10 procentile dice.
+        <br /> You can use them for roleplaying games lite Dungeons and Dragons,
+        Pathfinder, Call of Cthulhu, Coriolis and many more.
       </Hero>
       <ProductsWrapper />
     </>

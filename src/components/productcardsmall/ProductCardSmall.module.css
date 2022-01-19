@@ -23,3 +23,16 @@ p {
 .product_card_small_items p {
   margin-left: 10px;
 }
+
+.product_card_title {
+  width: 20%;
+}
+
+.product_card_description {
+  max-width: 50%;
+}
+.product_card_price {
+  display: flex;
+  width: 10%;
+  justify-content: space-between;
+}

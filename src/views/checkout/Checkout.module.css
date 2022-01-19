@@ -41,3 +41,15 @@
   color: #000000;
   border: 2px solid #000000;
 }
+
+.total_wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+  padding: 3rem;
+}
+
+.total {
+  font-weight: bold;
+  margin-right: 2rem;
+}

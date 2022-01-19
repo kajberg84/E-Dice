@@ -40,9 +40,6 @@ export const Checkout = () => {
   );
   console.log(allPrices);
 
-  const reducer = (previousValue, currentValue) => previousValue + currentValue;
-  const totalPrice = allPrices.reduce(reducer);
-
   // Submit order function
   const onSubmit = (values) => {
     navigate(`../${RoutingPath.OrderConfirmation}`);
@@ -77,9 +74,15 @@ export const Checkout = () => {
               />
             ))}
           </div>
+
           <div className={styles.total_wrapper}>
             <p className={styles.total}> Total: </p>
-            <p className={styles.total}> {totalPrice} $</p>
+            <p className={styles.total}>
+              {allPrices.length > 0
+                ? allPrices.reduce((total, price) => total + price)
+                : "0"}
+              $
+            </p>
           </div>
         </div>
         <form

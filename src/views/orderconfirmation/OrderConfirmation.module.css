@@ -4,6 +4,9 @@
 }
 
 .order_confirmation_wrapper h2 {
+    margin-bottom: 20px;
+}
+.order_confirmation_wrapper h3 {
     margin-top: 20px;
 }
 

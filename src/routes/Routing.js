@@ -32,7 +32,8 @@ export const Routing = () => {
             <Route path={RoutingPath.Privacy} element={<Privacy />} />
             <Route path={RoutingPath.Checkout} element={<Checkout />} />
             <Route
-              path={RoutingPath.OrderConfirmation}
+              // path={RoutingPath.OrderConfirmation}
+              path={`${RoutingPath.OrderConfirmation}/:firstname/:lastname/:address/:zipcode/:city/:phone/:email`}
               element={<OrderConfirmation />}
             />
             <Route

@@ -1,15 +1,15 @@
-import { Hero } from "../../components/hero/Hero";
-import { ProductCardSmall } from "../../components/productcardsmall/ProductCardSmall";
-import { useContext } from "react";
-import { UserContext } from "../../context/UserContext";
-import { CartContext } from "../../context/CartContext";
-import { useNavigate } from "react-router-dom";
-import { RoutingPath } from "../../routes/RoutingPath";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { Hero } from '../../components/hero/Hero';
+import { ProductCardSmall } from '../../components/productcardsmall/ProductCardSmall';
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
+import { CartContext } from '../../context/CartContext';
+import { useNavigate } from 'react-router-dom';
+import { RoutingPath } from '../../routes/RoutingPath';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 // styles
-import styles from "./Checkout.module.css";
+import styles from './Checkout.module.css';
 
 // Schema for formvalidating
 const shippingSchema = yup
@@ -41,9 +41,11 @@ export const Checkout = () => {
 
   // Submit order function
   const onSubmit = (values) => {
-    navigate(`../${RoutingPath.OrderConfirmation}`);
+    navigate(
+      `../${RoutingPath.OrderConfirmation}/${values.firstName}/${values.lastName}/${values.address}/${values.zipCode}/${values.city}/${values.phone}/${values.email}`
+    );
     console.log(
-      "your order with details:" + JSON.stringify(values) + " is confirmed"
+      'your order with details:' + JSON.stringify(values) + ' is confirmed'
     );
   };
 
@@ -52,7 +54,7 @@ export const Checkout = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: "onBlur",
+    mode: 'onBlur',
     resolver: yupResolver(shippingSchema),
   });
 
@@ -79,7 +81,7 @@ export const Checkout = () => {
             <p className={styles.total}>
               {allPrices.length > 0
                 ? allPrices.reduce((total, price) => total + price)
-                : "0"}{" "}
+                : '0'}{' '}
               $
             </p>
           </div>
@@ -96,7 +98,7 @@ export const Checkout = () => {
 
           <label>First Name</label>
           <input
-            {...register("firstName")}
+            {...register('firstName')}
             autoComplete="given-name"
             placeholder="First name..."
             defaultValue={user?.fname}
@@ -105,7 +107,7 @@ export const Checkout = () => {
 
           <label>Last Name</label>
           <input
-            {...register("lastName")}
+            {...register('lastName')}
             autoComplete="family-name"
             placeholder="Last name..."
             defaultValue={user?.lname}
@@ -113,7 +115,7 @@ export const Checkout = () => {
           <p>{errors.lastName?.message}</p>
           <label>Adress</label>
           <input
-            {...register("address")}
+            {...register('address')}
             autoComplete="street-address"
             placeholder="Address..."
             defaultValue={user?.adress}
@@ -121,7 +123,7 @@ export const Checkout = () => {
           <p>{errors.address?.message}</p>
           <label>Zip Code</label>
           <input
-            {...register("zipCode")}
+            {...register('zipCode')}
             autoComplete="postal-code"
             placeholder="Zip code..."
             defaultValue={user?.zipCode}
@@ -129,7 +131,7 @@ export const Checkout = () => {
           <p>{errors.zipCode?.message}</p>
           <label>City</label>
           <input
-            {...register("city")}
+            {...register('city')}
             autoComplete="city"
             placeholder="City..."
             defaultValue={user?.city}
@@ -137,7 +139,7 @@ export const Checkout = () => {
           <p>{errors.city?.message}</p>
           <label>Phone</label>
           <input
-            {...register("phone")}
+            {...register('phone')}
             autoComplete="tel"
             placeholder="Phone number..."
             defaultValue={user?.phone}
@@ -145,7 +147,7 @@ export const Checkout = () => {
           <p>{errors.phone?.message}</p>
           <label>E-mail</label>
           <input
-            {...register("email")}
+            {...register('email')}
             autoComplete="email"
             placeholder="E-mail..."
             defaultValue={user?.email}

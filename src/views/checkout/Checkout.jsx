@@ -38,7 +38,6 @@ export const Checkout = () => {
   const allPrices = cart.map((product) =>
     multiply(product.price, product.quantity)
   );
-  console.log(allPrices);
 
   // Submit order function
   const onSubmit = (values) => {
@@ -80,7 +79,7 @@ export const Checkout = () => {
             <p className={styles.total}>
               {allPrices.length > 0
                 ? allPrices.reduce((total, price) => total + price)
-                : "0"}
+                : "0"}{" "}
               $
             </p>
           </div>

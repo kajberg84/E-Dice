@@ -83,7 +83,7 @@ export const Cart = () => {
           <p className={style.total}>
             {allPrices.length > 0
               ? allPrices.reduce((total, price) => total + price)
-              : "0"}
+              : "0"}{" "}
             $
           </p>
         </div>

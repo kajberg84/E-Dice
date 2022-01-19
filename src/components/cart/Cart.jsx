@@ -34,10 +34,6 @@ export const Cart = () => {
   const allPrices = cart.map((product) =>
     multiply(product.price, product.quantity)
   );
-  console.log(allPrices);
-
-  const reducer = (previousValue, currentValue) => previousValue + currentValue;
-  const totalPrice = allPrices.reduce(reducer);
 
   return (
     <div>
@@ -84,7 +80,12 @@ export const Cart = () => {
         ))}
         <div className={style.total_wrapper}>
           <p className={style.total}> Total: </p>
-          <p className={style.total}> {totalPrice} $</p>
+          <p className={style.total}>
+            {allPrices.length > 0
+              ? allPrices.reduce((total, price) => total + price)
+              : "0"}
+            $
+          </p>
         </div>
       </ul>
     </div>

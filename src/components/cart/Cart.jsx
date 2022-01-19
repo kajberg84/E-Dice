@@ -26,6 +26,19 @@ export const Cart = () => {
     }
   };
 
+  //Functions for adding prices for a total.
+  const multiply = (a, b) => {
+    return a * b;
+  };
+
+  const allPrices = cart.map((product) =>
+    multiply(product.price, product.quantity)
+  );
+  console.log(allPrices);
+
+  const reducer = (previousValue, currentValue) => previousValue + currentValue;
+  const totalPrice = allPrices.reduce(reducer);
+
   return (
     <div>
       {cart.length <= 0 && <p>Your shopping cart is empty...</p>}
@@ -69,6 +82,10 @@ export const Cart = () => {
             </div>
           </li>
         ))}
+        <div className={style.total_wrapper}>
+          <p className={style.total}> Total: </p>
+          <p className={style.total}> {totalPrice} $</p>
+        </div>
       </ul>
     </div>
   );

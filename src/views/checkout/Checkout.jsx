@@ -30,6 +30,19 @@ export const Checkout = () => {
 
   const navigate = useNavigate();
 
+  //Functions for adding prices for a total.
+  const multiply = (a, b) => {
+    return a * b;
+  };
+
+  const allPrices = cart.map((product) =>
+    multiply(product.price, product.quantity)
+  );
+  console.log(allPrices);
+
+  const reducer = (previousValue, currentValue) => previousValue + currentValue;
+  const totalPrice = allPrices.reduce(reducer);
+
   // Submit order function
   const onSubmit = (values) => {
     navigate(`../${RoutingPath.OrderConfirmation}`);
@@ -63,6 +76,10 @@ export const Checkout = () => {
                 price={product.price * product.quantity}
               />
             ))}
+          </div>
+          <div className={styles.total_wrapper}>
+            <p className={styles.total}> Total: </p>
+            <p className={styles.total}> {totalPrice} $</p>
           </div>
         </div>
         <form

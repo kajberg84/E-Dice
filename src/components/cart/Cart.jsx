@@ -41,20 +41,10 @@ export const Cart = () => {
       <ul>
         {cart.map((product, index) => (
           <li className={style.li_style} key={index}>
-            <span
-              style={{
-                width: "50%",
-              }}
-            >
+            <span className={style.cart_name}>
               {product.quantity} {product.title}
             </span>
-            <div
-              style={{
-                display: "flex",
-                width: "18%",
-                justifyContent: "space-between",
-              }}
-            >
+            <div className={style.cart_incdecbuttons}>
               <img
                 src={plus}
                 alt="increase quantity by 1"
@@ -69,13 +59,11 @@ export const Cart = () => {
                 onClick={() => decrementQuantity(product)}
               />
             </div>
-            <div
-              style={{
-                width: "20%",
-              }}
-            >
+
+            <p className={style.cart_price}>
+              {" "}
               {product.price * product.quantity} $
-            </div>
+            </p>
           </li>
         ))}
         <div className={style.total_wrapper}>

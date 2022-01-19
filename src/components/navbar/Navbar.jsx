@@ -24,9 +24,11 @@ export const Navbar = (props) => {
 
   const [modalVisible, setModalvisible] = useState(false);
 
-  const { total } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
 
   const navigate = useNavigate();
+
+  const itemsInCart = cart.map((item) => item.quantity);
 
   // Logout function
   const handleLogout = () => {
@@ -87,7 +89,7 @@ export const Navbar = (props) => {
         {user ? authNavbar() : unAuthNavbar()}
         <div className={styles.nav_icon_wrapper} onClick={showModal}>
           <button className={styles.nav_button}>
-            {total <= 0 ? (
+            {cart.length <= 0 ? (
               <img
                 className={styles.cart_icon}
                 src={emptyCartIcon}
@@ -101,7 +103,13 @@ export const Navbar = (props) => {
               />
             )}
           </button>
-          <p> ({total}) </p>
+          <p>
+            (
+            {itemsInCart.length > 0
+              ? itemsInCart.reduce((total, price) => total + price)
+              : "0"}
+            )
+          </p>
         </div>
       </nav>
       {modalVisible && (

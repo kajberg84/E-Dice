@@ -24,5 +24,22 @@
 
 .total {
   font-weight: bold;
-  margin-right: 2rem;
+  margin-right: 1rem;
+}
+
+.cart_name {
+  width: 45%;
+}
+
+.cart_incdecbuttons {
+  display: flex;
+  width: 18%;
+  justify-content: space-between;
+}
+
+.cart_price {
+  display: flex;
+  width: 20%;
+  justify-content: flex-end;
+  margin-right: 1rem;
 }

@@ -62,6 +62,7 @@ export const Login = () => {
           <input
             {...register("password")}
             placeholder="Type in your password"
+            type="password"
           />
           <button type="submit" className={`${styles.loginbutton} formButton`}>
             Sign in

@@ -1,14 +1,14 @@
-import { useContext, useState, useEffect } from 'react';
-import { Hero } from '../../components/hero/Hero';
-import { ProductCardSmall } from '../../components/productcardsmall/ProductCardSmall';
-import { CartContext } from '../../context/CartContext';
-import { useParams } from 'react-router-dom';
+import { useContext, useState, useEffect } from "react";
+import { Hero } from "../../components/hero/Hero";
+import { ProductCardSmall } from "../../components/productcardsmall/ProductCardSmall";
+import { CartContext } from "../../context/CartContext";
+import { useParams } from "react-router-dom";
 
 // styles
-import styles from './OrderConfirmation.module.css';
+import styles from "./OrderConfirmation.module.css";
 
 export const OrderConfirmation = () => {
-  const { cart, setCart, setTotal } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
   const [order, setOrder] = useState(cart);
 
   const { firstname, lastname, address, zipcode, city, phone, email } =
@@ -16,12 +16,11 @@ export const OrderConfirmation = () => {
 
   useEffect(() => {
     setCart([]);
-    setTotal(0);
   }, []);
 
   return (
     <div className={styles.order_confirmation_container}>
-      <Hero title={'Order confirmation'} />
+      <Hero title={"Order confirmation"} />
       <div className={styles.order_confirmation_wrapper}>
         <h2>Thank you for the order</h2>
         <p>We will process your order as soon as possible.</p>
@@ -44,7 +43,9 @@ export const OrderConfirmation = () => {
         {firstname && (
           <div>
             <ul>
-              <li>Name: {firstname}, {lastname}</li>
+              <li>
+                Name: {firstname}, {lastname}
+              </li>
               <li>Address: {address}</li>
               <li>Zip Code: {zipcode}</li>
               <li>City: {city}</li>

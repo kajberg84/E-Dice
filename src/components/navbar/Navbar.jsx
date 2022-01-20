@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { RoutingPath } from "../../routes/RoutingPath";
 
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../context/UserContext";
 import { CartContext } from "../../context/CartContext";
 import { Modal } from "../../utils/modal/Modal";
@@ -28,7 +28,17 @@ export const Navbar = (props) => {
 
   const navigate = useNavigate();
 
-  const itemsInCart = cart.map((item) => item.quantity);
+  const [itemsInCart, setItemsInCart] = useState(
+    cart.map((item) => item.quantity)
+  );
+
+  const updateItemsInCart = () => {
+    setItemsInCart(cart.map((item) => item.quantity));
+  };
+
+  useEffect(() => {
+    updateItemsInCart();
+  }, [cart]);
 
   // Logout function
   const handleLogout = () => {

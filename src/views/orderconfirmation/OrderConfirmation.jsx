@@ -14,6 +14,15 @@ export const OrderConfirmation = () => {
   const { firstname, lastname, address, zipcode, city, phone, email } =
     useParams();
 
+  //Functions for adding prices for a total.
+  const multiply = (a, b) => {
+    return a * b;
+  };
+
+  const allPrices = order.map((product) =>
+    multiply(product.price, product.quantity)
+  );
+
   useEffect(() => {
     setCart([]);
   }, []);
@@ -38,6 +47,15 @@ export const OrderConfirmation = () => {
               price={product.price * product.quantity}
             />
           ))}
+        </div>
+        <div className={styles.total_wrapper}>
+          <p className={styles.total}> Total: </p>
+          <p className={styles.total}>
+            {allPrices.length > 0
+              ? allPrices.reduce((total, price) => total + price)
+              : "0"}{" "}
+            $
+          </p>
         </div>
         <h4 className={styles.order_confirmation_heading4}>Delivery Info</h4>
         {firstname && (

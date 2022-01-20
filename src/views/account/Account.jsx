@@ -9,7 +9,6 @@ import styles from "./Account.module.css";
 export const Account = () => {
   const { user } = useContext(UserContext);
 
-  // Uppdatera så at denna kolla mot userContext
   return (
     <div className={styles.account_container}>
       {user && <Hero title={`Hello ${user.fname}`} />}

@@ -17,10 +17,10 @@ export const Account = () => {
       <div className={styles.account_wrapper}>
         <div className={styles.account_content}>
           <h2>Find some amazing dice sets in our shop</h2>
+          <p>It's time to find out how you roll! </p>
           <p>
-            It's time to find out how you roll! <br />
-            We pride ourselfs on our well balanced and beautiful dice. Check out
-            our shop to get yours today!
+            We pride ourselves on our well balanced and beautiful dice. Check
+            out our shop to get yours today!
           </p>
           <Link to="/">
             <button className={styles.account_button}>Shop Dices</button>

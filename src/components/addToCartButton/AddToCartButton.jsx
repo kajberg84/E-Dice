@@ -3,7 +3,7 @@ import { CartContext } from "../../context/CartContext";
 import styles from "./addToCartButton.module.css";
 
 export const AddToCartButton = (props) => {
-  const { cart, setCart, total, setTotal } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
 
   const { product } = props;
 
@@ -16,10 +16,10 @@ export const AddToCartButton = (props) => {
 
     if (checkCartForProduct !== -1) {
       cart[checkCartForProduct].quantity += 1;
-      setTotal(total + 1);
+      const updatedCart = cart.slice();
+      setCart(updatedCart);
     } else {
       setCart([...cart, product]);
-      setTotal(total + 1);
     }
   };
 

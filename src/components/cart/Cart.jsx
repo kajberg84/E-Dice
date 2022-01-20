@@ -5,13 +5,13 @@ import plus from "../../assets/icons/add_white_24dp.svg";
 import minus from "../../assets/icons/remove_white_24dp.svg";
 
 export const Cart = () => {
-  const { cart, total, setTotal } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
 
   //Funktionalitet för att öka eller minska antalet producter i varukorgen.
-
   const incrementQuantity = (product) => {
     product.quantity += 1;
-    setTotal(total + 1);
+    const updatedCart = cart.slice();
+    setCart(updatedCart);
   };
   const decrementQuantity = (product) => {
     const checkCartForProduct = cart.findIndex(
@@ -19,10 +19,12 @@ export const Cart = () => {
     );
     if (product.quantity > 1) {
       product.quantity -= 1;
-      setTotal(total - 1);
+      const updatedCart = cart.slice();
+      setCart(updatedCart);
     } else if (product.quantity === 1) {
       cart.splice(checkCartForProduct, 1);
-      setTotal(total - 1);
+      const updatedCart = cart.slice();
+      setCart(updatedCart);
     }
   };
 

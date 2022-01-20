@@ -52,9 +52,8 @@ export const Routing = () => {
                 </UnAuthRoute>
               }
             />
+            <Route path="*" element={<NotFound />} />
           </Route>
-
-          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>
